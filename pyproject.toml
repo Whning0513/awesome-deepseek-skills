@@ -1,6 +1,6 @@
 [project]
 name = "awesome-deepseek-skills"
-version = "0.1.0"
+version = "0.2.0"
 description = "A pinned and statically verified catalog of Agent Skills for DeepSeek and DSH"
 requires-python = ">=3.11"
 dependencies = [
@@ -26,4 +26,3 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-

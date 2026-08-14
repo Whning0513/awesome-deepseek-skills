@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -246,7 +247,7 @@ def _verify_bundle(
 def install_entry(entry: dict[str, Any], target: Path, *, dry_run: bool) -> Path:
     target = target.resolve()
     destination = target / entry["name"]
-    if destination.exists():
+    if destination.exists() or destination.is_symlink():
         raise FileExistsError(f"refusing to overwrite {destination}")
     if dry_run:
         return destination
@@ -282,8 +283,12 @@ def install_entry(entry: dict[str, Any], target: Path, *, dry_run: bool) -> Path
 
 
 def _checkout(repository: str, commit: str, paths: list[str], destination: Path) -> None:
+    empty_hooks = destination.parent / ".empty-git-hooks"
+    empty_hooks.mkdir(exist_ok=True)
     _run(["git", "init", "-q", str(destination)])
-    _run(["git", "-C", str(destination), "remote", "add", "origin", f"{repository}.git"])
+    _run(
+        ["git", "-C", str(destination), "remote", "add", "origin", _repository_remote(repository)]
+    )
     _run(["git", "-C", str(destination), "sparse-checkout", "init", "--cone"])
     _run(["git", "-C", str(destination), "sparse-checkout", "set", *sorted(set(paths))])
     _run(
@@ -292,7 +297,7 @@ def _checkout(repository: str, commit: str, paths: list[str], destination: Path)
             "-C",
             str(destination),
             "-c",
-            "core.hooksPath=/dev/null",
+            f"core.hooksPath={empty_hooks.as_posix()}",
             "fetch",
             "--depth=1",
             "--filter=blob:none",
@@ -307,7 +312,7 @@ def _checkout(repository: str, commit: str, paths: list[str], destination: Path)
             "-C",
             str(destination),
             "-c",
-            "core.hooksPath=/dev/null",
+            f"core.hooksPath={empty_hooks.as_posix()}",
             "checkout",
             "--detach",
             "FETCH_HEAD",
@@ -316,6 +321,12 @@ def _checkout(repository: str, commit: str, paths: list[str], destination: Path)
     actual = _run(["git", "-C", str(destination), "rev-parse", "HEAD"], capture=True).strip()
     if actual != commit:
         raise RuntimeError(f"expected {commit}, checked out {actual}")
+
+
+def _repository_remote(repository: str) -> str:
+    if re.fullmatch(r"https://github\.com/[^/]+/[^/]+", repository):
+        return f"{repository}.git"
+    return repository
 
 
 def _run(command: list[str], *, timeout: int = 60, capture: bool = False) -> str:

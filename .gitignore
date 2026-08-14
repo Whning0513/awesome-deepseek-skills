@@ -3,4 +3,6 @@
 .ruff_cache/
 __pycache__/
 *.egg-info/
-
+node_modules/
+npm-debug.log*
+*.tgz

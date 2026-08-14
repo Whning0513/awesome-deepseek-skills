@@ -1,0 +1,53 @@
+{
+  "name": "dsh-awesome-deepseek-skills",
+  "version": "0.2.0",
+  "description": "Browse and install pinned Agent Skills from Awesome DeepSeek Skills in DSH",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "dsh/",
+    "catalog/schema.json",
+    "catalog/skills/",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests-js/*.test.js"
+  },
+  "keywords": [
+    "deepseek",
+    "dsh",
+    "dsh-plugin",
+    "agent-skills",
+    "awesome-list"
+  ],
+  "license": "MIT",
+  "author": "Awesome DeepSeek Skills contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whning0513/awesome-deepseek-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Whning0513/awesome-deepseek-skills/issues"
+  },
+  "homepage": "https://github.com/Whning0513/awesome-deepseek-skills#readme",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": ">=0.0.1-rc.1 <0.0.2 || >=0.1.0-rc.1 <0.2.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
