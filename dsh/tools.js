@@ -35,7 +35,8 @@ export function createToolDefinitions(defineTool) {
     defineTool({
       name: 'deepseek_skill_install',
       description:
-        'Install one catalog skill at its pinned commit into the current DSH project. '
+        'Only use after the user explicitly asks to install the exact catalog id. '
+        + 'Install that skill at its pinned commit into the current DSH project. '
         + 'This fetches from the network and writes either .agents/skills or .dsh/skills. '
         + 'It refuses overwrites and symbolic links, and never executes scripts from the skill.',
       parameters: {

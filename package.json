@@ -1,6 +1,6 @@
 {
   "name": "dsh-awesome-deepseek-skills",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Browse and install pinned Agent Skills from Awesome DeepSeek Skills in DSH",
   "type": "module",
   "main": "./index.js",
