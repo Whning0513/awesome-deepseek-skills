@@ -1,0 +1,46 @@
+{
+  "id": "obra/superpowers/writing-plans",
+  "results": {
+    "agent_skills_spec": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "dsh_profile": {
+      "errors": 0,
+      "findings": [],
+      "status": "pass",
+      "warnings": 0
+    },
+    "skill_validator_structure": {
+      "errors": 0,
+      "findings": [
+        {
+          "category": "Structure",
+          "file": "plan-document-reviewer-prompt.md",
+          "level": "warning",
+          "message": "unexpected file at root: plan-document-reviewer-prompt.md \u2014 if agents need this file, move it into references/ or assets/ as appropriate; otherwise remove it to avoid unnecessary context window usage"
+        }
+      ],
+      "status": "warnings",
+      "tokens": 1568,
+      "warnings": 1
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "maturity": "established",
+    "path": "skills/writing-plans",
+    "repository": "https://github.com/obra/superpowers"
+  },
+  "tools": {
+    "agent_skills_reference_commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379",
+    "deepseek_skill_doctor": {
+      "commit": "fcd0ee835367a02944654c3de2970758dd676811",
+      "version": "0.1.0"
+    },
+    "skill_validator": "1.6.0"
+  },
+  "verified_at": "2026-08-14"
+}

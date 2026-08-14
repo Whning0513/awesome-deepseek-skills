@@ -1,0 +1,39 @@
+{
+  "id": "Whning0513/deepseek-protocol-doctor/deepseek-protocol-doctor",
+  "results": {
+    "agent_skills_spec": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "dsh_profile": {
+      "errors": 0,
+      "findings": [],
+      "status": "pass",
+      "warnings": 0
+    },
+    "skill_validator_structure": {
+      "errors": 0,
+      "findings": [],
+      "status": "pass",
+      "tokens": 581,
+      "warnings": 0
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "commit": "7f6e8ddbace09cc59252694002613d5abe5e2d5c",
+    "maturity": "new",
+    "path": "skills/deepseek-protocol-doctor",
+    "repository": "https://github.com/Whning0513/deepseek-protocol-doctor"
+  },
+  "tools": {
+    "agent_skills_reference_commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379",
+    "deepseek_skill_doctor": {
+      "commit": "fcd0ee835367a02944654c3de2970758dd676811",
+      "version": "0.1.0"
+    },
+    "skill_validator": "1.6.0"
+  },
+  "verified_at": "2026-08-14"
+}

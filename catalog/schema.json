@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Whning0513/awesome-deepseek-skills/catalog/schema.json",
+  "title": "Awesome DeepSeek Skills entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "description",
+    "category",
+    "source",
+    "license",
+    "risk"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "description": { "type": "string", "minLength": 20, "maxLength": 180 },
+    "category": {
+      "enum": ["deepseek", "development", "design", "productivity", "security"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commit", "path", "maturity"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "path": { "type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\\\]+$" },
+        "maturity": { "enum": ["new", "established", "official-example"] }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx", "file"],
+      "properties": {
+        "spdx": { "type": "string", "minLength": 3, "maxLength": 40 },
+        "file": { "type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\\\]+$" }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["network", "commands", "writes", "reviewed_at"],
+      "properties": {
+        "network": { "enum": ["none", "install-only", "optional", "required"] },
+        "commands": { "type": "boolean" },
+        "writes": { "enum": ["none", "workspace", "external", "workspace-and-external"] },
+        "reviewed_at": { "type": "string", "format": "date" }
+      }
+    },
+    "notes": { "type": "string", "maxLength": 300 }
+  }
+}
+

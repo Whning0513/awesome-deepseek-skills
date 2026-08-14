@@ -1,0 +1,42 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.2"
+          enable-cache: true
+      - run: uv sync --locked --all-groups
+      - run: uv run ruff check .
+      - run: uv run pytest
+      - run: uv run python scripts/catalog.py check
+      - run: uv run python scripts/catalog.py render --check
+      - name: Install pinned upstream validator
+        run: |
+          curl --fail --location --silent --show-error \
+            --output /tmp/skill-validator.tar.gz \
+            https://github.com/agent-ecosystem/skill-validator/releases/download/v1.6.0/skill-validator_1.6.0_linux_amd64.tar.gz
+          echo "1c42c832880d8a8d311346c73dfdbd002670df34774583ebad548b350da479f6  /tmp/skill-validator.tar.gz" | sha256sum --check
+          tar -xzf /tmp/skill-validator.tar.gz -C /tmp
+      - name: Reproduce reports
+        run: |
+          uv run python scripts/catalog.py verify \
+            --skill-validator /tmp/skill-validator \
+            --verified-at 2026-08-14 \
+            --check
+

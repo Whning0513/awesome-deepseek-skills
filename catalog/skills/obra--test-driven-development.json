@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "obra/superpowers/test-driven-development",
+  "name": "test-driven-development",
+  "description": "Runs a red-green-refactor workflow and requires observing a meaningful failing test before implementation.",
+  "category": "development",
+  "source": {
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "path": "skills/test-driven-development",
+    "maturity": "established"
+  },
+  "license": { "spdx": "MIT", "file": "LICENSE" },
+  "risk": {
+    "network": "optional",
+    "commands": true,
+    "writes": "workspace",
+    "reviewed_at": "2026-08-14"
+  }
+}
+

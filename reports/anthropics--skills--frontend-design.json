@@ -1,0 +1,46 @@
+{
+  "id": "anthropics/skills/frontend-design",
+  "results": {
+    "agent_skills_spec": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "dsh_profile": {
+      "errors": 0,
+      "findings": [],
+      "status": "pass",
+      "warnings": 0
+    },
+    "skill_validator_structure": {
+      "errors": 0,
+      "findings": [
+        {
+          "category": "Structure",
+          "file": "LICENSE.txt",
+          "level": "warning",
+          "message": "LICENSE.txt is not needed in a skill \u2014 agents may load it into their context window, taking space from your actual task (Anthropic best practices: skills should only contain files that directly support agent functionality)"
+        }
+      ],
+      "status": "warnings",
+      "tokens": 1592,
+      "warnings": 1
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "commit": "f6656c1256d5a8adfa37db9110046ef20bac644c",
+    "maturity": "official-example",
+    "path": "skills/frontend-design",
+    "repository": "https://github.com/anthropics/skills"
+  },
+  "tools": {
+    "agent_skills_reference_commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379",
+    "deepseek_skill_doctor": {
+      "commit": "fcd0ee835367a02944654c3de2970758dd676811",
+      "version": "0.1.0"
+    },
+    "skill_validator": "1.6.0"
+  },
+  "verified_at": "2026-08-14"
+}

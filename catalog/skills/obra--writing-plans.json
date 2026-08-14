@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "obra/superpowers/writing-plans",
+  "name": "writing-plans",
+  "description": "Turns an approved design into small implementation tasks with exact files, commands, tests, and commit boundaries.",
+  "category": "development",
+  "source": {
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "path": "skills/writing-plans",
+    "maturity": "established"
+  },
+  "license": { "spdx": "MIT", "file": "LICENSE" },
+  "risk": {
+    "network": "none",
+    "commands": false,
+    "writes": "workspace",
+    "reviewed_at": "2026-08-14"
+  }
+}
+

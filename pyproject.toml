@@ -1,0 +1,29 @@
+[project]
+name = "awesome-deepseek-skills"
+version = "0.1.0"
+description = "A pinned and statically verified catalog of Agent Skills for DeepSeek and DSH"
+requires-python = ">=3.11"
+dependencies = [
+  "deepseek-skill-doctor @ git+https://github.com/Whning0513/deepseek-skill-doctor.git@fcd0ee835367a02944654c3de2970758dd676811",
+  "jsonschema>=4.25,<5",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4,<9",
+  "ruff>=0.12,<0.14",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

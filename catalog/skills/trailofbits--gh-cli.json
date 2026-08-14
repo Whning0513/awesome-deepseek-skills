@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "trailofbits/skills/gh-cli",
+  "name": "gh-cli",
+  "description": "Uses authenticated GitHub CLI commands for repositories, pull requests, issues, releases, and API access.",
+  "category": "development",
+  "source": {
+    "repository": "https://github.com/trailofbits/skills",
+    "commit": "304c81a8cefb6e3c029ebd0d12940ccf0713eccb",
+    "path": "plugins/gh-cli/skills/gh-cli",
+    "maturity": "established"
+  },
+  "license": { "spdx": "CC-BY-SA-4.0", "file": "LICENSE" },
+  "risk": {
+    "network": "required",
+    "commands": true,
+    "writes": "external",
+    "reviewed_at": "2026-08-14"
+  },
+  "notes": "Review the requested gh operation: the CLI can read or change GitHub state depending on the task."
+}
+

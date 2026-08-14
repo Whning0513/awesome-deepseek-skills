@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "Whning0513/deepseek-skill-doctor/deepseek-skill-doctor",
+  "name": "deepseek-skill-doctor",
+  "description": "Checks Agent Skills for DSH discovery, routing, portability, and unsafe DeepSeek protocol advice.",
+  "category": "deepseek",
+  "source": {
+    "repository": "https://github.com/Whning0513/deepseek-skill-doctor",
+    "commit": "fcd0ee835367a02944654c3de2970758dd676811",
+    "path": "skills/deepseek-skill-doctor",
+    "maturity": "new"
+  },
+  "license": { "spdx": "MIT", "file": "LICENSE" },
+  "risk": {
+    "network": "install-only",
+    "commands": true,
+    "writes": "none",
+    "reviewed_at": "2026-08-14"
+  },
+  "notes": "Reads skill text without executing bundled scripts or calling a model."
+}
+

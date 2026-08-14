@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "Whning0513/deepseek-protocol-doctor/deepseek-protocol-doctor",
+  "name": "deepseek-protocol-doctor",
+  "description": "Checks DeepSeek request histories, tool loops, reasoning_content handling, and SSE captures offline.",
+  "category": "deepseek",
+  "source": {
+    "repository": "https://github.com/Whning0513/deepseek-protocol-doctor",
+    "commit": "7f6e8ddbace09cc59252694002613d5abe5e2d5c",
+    "path": "skills/deepseek-protocol-doctor",
+    "maturity": "new"
+  },
+  "license": { "spdx": "MIT", "file": "LICENSE" },
+  "risk": {
+    "network": "install-only",
+    "commands": true,
+    "writes": "none",
+    "reviewed_at": "2026-08-14"
+  },
+  "notes": "The checker itself is offline; uvx or source installation may use the network."
+}
+
