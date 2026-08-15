@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "riffkit/skill/riffkit",
+  "name": "riffkit",
+  "description": "Load when the user wants a short video made from a proven one: rebuilds that video's formula into their own product video, optional character and placement.",
+  "category": "productivity",
+  "source": {
+    "repository": "https://github.com/riffkit/skill",
+    "commit": "e0c81220af54812e82072f223b11db02e62611fd",
+    "path": "riffkit",
+    "maturity": "new"
+  },
+  "license": { "spdx": "MIT", "file": "LICENSE" },
+  "risk": {
+    "network": "required",
+    "commands": true,
+    "writes": "workspace",
+    "reviewed_at": "2026-08-15"
+  },
+  "notes": "Changes external state and uses a credential: the agent sends an API key to riffkit.ai and creates rendering jobs that consume the account's paid balance. It executes no downloaded code; the only host it contacts is riffkit.ai. Writes are downloaded result files in the workspace."
+}
